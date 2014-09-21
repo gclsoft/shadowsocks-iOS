@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D593A419CED3340047420B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D593A319CED3340047420B /* StoreKit.framework */; };
+		18D593A619CED3500047420B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D593A519CED3500047420B /* AudioToolbox.framework */; };
 		6205309618D4443E00887D3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621571AA16CF6BCB003D96B4 /* Foundation.framework */; };
 		6205309918D4443E00887D3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6205309818D4443E00887D3E /* main.m */; };
 		620530A518D4444E00887D3E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629AC93F18B49C33001D2771 /* SystemConfiguration.framework */; };
@@ -204,6 +206,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18D593A319CED3340047420B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		18D593A519CED3500047420B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		18D593A719CED3500047420B /* shadowsocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = shadowsocks.entitlements; sourceTree = "<group>"; };
 		6205309518D4443E00887D3E /* shadowsocks_sysconf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = shadowsocks_sysconf; sourceTree = BUILT_PRODUCTS_DIR; };
 		6205309818D4443E00887D3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6205309B18D4443E00887D3E /* shadowsocks_sysconf-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "shadowsocks_sysconf-Prefix.pch"; sourceTree = "<group>"; };
@@ -432,6 +437,7 @@
 				623A7ECF1795B1D800DF11DF /* libshadowsocks.a in Frameworks */,
 				62CD9190178977B500B2CB55 /* MessageUI.framework in Frameworks */,
 				621FCC091760400800411E5F /* CFNetwork.framework in Frameworks */,
+				18D593A419CED3340047420B /* StoreKit.framework in Frameworks */,
 				621FCC071760400400411E5F /* MobileCoreServices.framework in Frameworks */,
 				96D80C05176CE1D7006C8078 /* AVFoundation.framework in Frameworks */,
 				62CD119A175E3BD7008C4D0C /* libcrypto.a in Frameworks */,
@@ -440,6 +446,7 @@
 				621571AB16CF6BCB003D96B4 /* Foundation.framework in Frameworks */,
 				621571AD16CF6BCB003D96B4 /* CoreGraphics.framework in Frameworks */,
 				62DAB9E0177A11D7003DFFDE /* Crashlytics.framework in Frameworks */,
+				18D593A619CED3500047420B /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +492,7 @@
 		6215719C16CF6BCA003D96B4 = {
 			isa = PBXGroup;
 			children = (
+				18D593A719CED3500047420B /* shadowsocks.entitlements */,
 				621571AE16CF6BCB003D96B4 /* ShadowWeb */,
 				627A6DFE18B47E9300493BBC /* ShadowsocksX */,
 				627A6E1C18B47E9300493BBC /* ShadowsocksXTests */,
@@ -509,6 +517,8 @@
 		621571A716CF6BCB003D96B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18D593A519CED3500047420B /* AudioToolbox.framework */,
+				18D593A319CED3340047420B /* StoreKit.framework */,
 				62E27E5D18C1D1000086033D /* libz.dylib */,
 				62E27E5B18C1D0F80086033D /* libz.dylib */,
 				629AC93F18B49C33001D2771 /* SystemConfiguration.framework */,
@@ -953,8 +963,22 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = clowwindy;
 				TargetAttributes = {
+					621571A416CF6BCB003D96B4 = {
+						DevelopmentTeam = VPY3KD3NR9;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
+					};
 					627A6DF618B47E9300493BBC = {
-						DevelopmentTeam = LND7PS23X9;
+						DevelopmentTeam = VPY3KD3NR9;
 					};
 				};
 			};
@@ -1384,6 +1408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = shadowsocks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1416,8 +1441,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_ENTITLEMENTS = shadowsocks.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1435,7 +1461,7 @@
 					"\"$(SRCROOT)/OpenSSL-for-iPhone/lib\"",
 				);
 				PRODUCT_NAME = shadowsocks;
-				PROVISIONING_PROFILE = "10B86086-082B-4967-8900-EDF458793F84";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
